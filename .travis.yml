@@ -1,0 +1,19 @@
+language: php
+
+php:
+  - 5.6
+  - hhvm
+
+matrix:
+  allow_failures:
+    - php: hhvm
+
+before_script:
+  - composer self-update
+  - composer install --no-interaction --prefer-source --dev
+  - ./bin/parallel-lint -e php,phpt --exclude vendor .
+
+script: ./bin/tester -c ./tests/php.ini ./tests/Dogma/
+
+after_failure:
+  - 'for i in $(find ./tests -name \*.actual); do echo "--- $i"; cat $i; echo; echo; done'
