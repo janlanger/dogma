@@ -13,6 +13,7 @@ use Dogma\Arr;
 use Dogma\Check;
 use Dogma\Comparable;
 use Dogma\Equalable;
+use Dogma\InvalidIntervalException;
 use Dogma\Math\Interval\IntInterval;
 use Dogma\StrictBehaviorMixin;
 use Dogma\Time\Date;
@@ -37,13 +38,11 @@ class DateInterval implements DateOrTimeInterval
 
     public function __construct(Date $start, Date $end)
     {
+	    $this->start = $start;
+	    $this->end = $end;
+
         if ($start->getDayNumber() > $end->getDayNumber()) {
-            // empty
-            $this->start = new Date(self::MAX);
-            $this->end = new Date(self::MIN);
-        } else {
-            $this->start = $start;
-            $this->end = $end;
+	        throw new InvalidIntervalException($this->start, $this->end);
         }
     }
 

@@ -2,6 +2,7 @@
 
 namespace Dogma\Tests\Time\Interval;
 
+use Dogma\InvalidIntervalException;
 use Dogma\Tester\Assert;
 use Dogma\Time\Date;
 use Dogma\Time\Interval\DateInterval;
@@ -24,6 +25,11 @@ $r = function (int $start, int $end) {
 $s = function (DateInterval ...$items) {
     return new DateIntervalSet($items);
 };
+
+// __construct()
+Assert::exception(function () {
+	new DateInterval(new Date('today'), new Date('yeaterday'));
+}, InvalidIntervalException::class);
 
 // shift()
 Assert::equal($interval->shift('+1 day'), $r(11, 21));

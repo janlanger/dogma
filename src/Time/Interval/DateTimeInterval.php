@@ -13,6 +13,7 @@ use Dogma\Arr;
 use Dogma\Check;
 use Dogma\Comparable;
 use Dogma\Equalable;
+use Dogma\InvalidIntervalException;
 use Dogma\Math\Interval\IntInterval;
 use Dogma\Math\Interval\OpenClosedInterval;
 use Dogma\StrictBehaviorMixin;
@@ -48,6 +49,10 @@ class DateTimeInterval implements DateOrTimeInterval, OpenClosedInterval
         $this->end = $end;
         $this->openStart = $openStart;
         $this->openEnd = $openEnd;
+
+        if ($this->start > $this->end) {
+	        throw new InvalidIntervalException($this->start, $this->end);
+        }
 
         if ($start->equals($end)) {
             if ($openStart || $openEnd) {
