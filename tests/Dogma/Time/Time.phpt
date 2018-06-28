@@ -26,6 +26,9 @@ Assert::throws(function (): void {
 
 Assert::same((new Time($timeString))->format(), $timeString);
 
+/// createFromDateTimeInterface()
+/// pro DateTime
+
 // createFromComponents()
 Assert::throws(function (): void {
     Time::createFromComponents(-1, 0, 0);
@@ -116,6 +119,10 @@ Assert::false($time->isSameOrAfter($after));
 Assert::false($time->isBetween(new Time('10:00:00'), new Time('12:00:00')));
 Assert::true($time->isBetween(new Time('02:00:00'), new Time('04:00:00')));
 Assert::true($time->isBetween(new Time('22:00:00'), new Time('04:00:00')));
+
+/// diff()
+
+/// difference()
 
 // rounding
 

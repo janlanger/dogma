@@ -25,6 +25,8 @@ $emptyInterval = TimeInterval::empty();
 
 $set = new TimeIntervalSet([$interval]);
 
+/// format()
+
 // isEmpty()
 Assert::true((new TimeIntervalSet([]))->isEmpty());
 Assert::true((new TimeIntervalSet([$emptyInterval]))->isEmpty());

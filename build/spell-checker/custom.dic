@@ -15,6 +15,10 @@ EOL
 pthreads
 args
 dst
+rrule
+LZ
+gps
+uid
 
 # curl
 curlopt
@@ -136,6 +140,15 @@ substrings
 denormalize
 denormalized
 denormalization
+precomputed
+cardinality
+synodic
+lunation
+lunations
+julian
+kepler
+evection
+proleptic
 
 # calendar
 monday

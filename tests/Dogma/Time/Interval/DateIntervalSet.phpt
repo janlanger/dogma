@@ -24,6 +24,8 @@ $emptyInterval = DateInterval::empty();
 
 $set = new DateIntervalSet([$interval]);
 
+/// format()
+
 // isEmpty()
 Assert::true((new DateIntervalSet([]))->isEmpty());
 Assert::true((new DateIntervalSet([$emptyInterval]))->isEmpty());

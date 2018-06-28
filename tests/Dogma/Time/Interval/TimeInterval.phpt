@@ -150,6 +150,8 @@ Assert::equal($empty->split(5, $splitMode), $s());
 Assert::equal($interval->splitBy([$t(5), $t(15), $t(25)], $splitMode), $s($i(10, 15), $i(15, 20)));
 Assert::equal($empty->splitBy([$t(5)], $splitMode), $s());
 
+/// splitByMidnight()
+
 // envelope()
 Assert::equal($interval->envelope($i(5, 15)), $i(5, 20));
 Assert::equal($interval->envelope($i(15, 25)), $i(10, 25));
