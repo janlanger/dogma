@@ -65,8 +65,8 @@ class AngleFormatter
      * %    Escape character. Use %% for printing "%"
      *
      * Skip groups:
-     * [    Group start, skip if zero
-     * ]    Group end, skip if zero
+     * [    Value start, skip if zero
+     * ]    Value end, skip if zero
      *
      * Objects:
      * D    Degrees with fraction

@@ -964,8 +964,7 @@ class ImmutableArray implements \Countable, \IteratorAggregate, \ArrayAccess
         if ($this->isEmpty()) {
             return new static($arr);
         }
-        array_unshift($arr, null);
-        $arr = array_map(...$arr);
+        $arr = array_map(null, ...$arr);
         foreach ($arr as $key => $value) {
             $arr[$key] = (array) $value;
         }

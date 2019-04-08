@@ -108,7 +108,14 @@ trait SetMixin
     final private static function init(string $class): void
     {
         $ref = new \ReflectionClass($class);
-        self::$availableValues[$class] = $ref->getConstants();
+		$constants = $ref->getReflectionConstants();
+		$values = [];
+		foreach ($constants as $constant) {
+			if ($constant->isPublic()) {
+				$values[$constant->getName()] = $constant->getValue();
+			}
+		}
+        self::$availableValues[$class] = $values;
         self::$instances[$class] = [];
     }
 

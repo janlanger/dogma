@@ -1,4 +1,4 @@
-<?php declare(strict_types = 1);
+<?php
 
 namespace Dogma\Tests\Math;
 
@@ -6,6 +6,10 @@ use Dogma\Math\Sequence;
 use Dogma\Tester\Assert;
 
 require_once __DIR__ . '/../bootstrap.php';
+
+for ($n = 0; $n < 90; $n++) {
+	echo Sequence\Catalan::getNth($n) . '<br>';
+}
 
 // lucas()
 Assert::same(Sequence::lucas(0), 2);

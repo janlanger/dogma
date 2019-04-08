@@ -11,7 +11,7 @@ namespace Dogma\Email;
 
 use Dogma\Io\File;
 use Dogma\Language\Inflector;
-use Dogma\PowersOfTwo;
+use Dogma\Math\PowersOfTwo;
 use Dogma\Str;
 use Dogma\StrictBehaviorMixin;
 use Dogma\Time\DateTime;

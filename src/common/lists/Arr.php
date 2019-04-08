@@ -1127,13 +1127,26 @@ class Arr
         if (empty($array)) {
             return [];
         }
-        array_unshift($array, null);
-        $array = array_map(...$array);
+        $array = array_map(null, ...$array);
         foreach ($array as $key => $value) {
             $array[$key] = (array) $value;
         }
         return $array;
     }
+
+    public static function transposeSafe(array $array): array
+	{
+		if (empty($array)) {
+			return [];
+		}
+		$result = [];
+		foreach ($array as $i => $items) {
+			foreach ($items as $j => $item) {
+				$result[$j][$i] = $item;
+			}
+		}
+		return $result;
+	}
 
     /**
      * @param mixed[][] $array
