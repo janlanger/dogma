@@ -58,6 +58,9 @@ class IntCalc
     public static function factorize(int $number): array
     {
         Check::range($number, 1);
+        if ($number === 1) {
+            return [1];
+        }
 
         $possibleFactors = Prime::getUntil($number);
 

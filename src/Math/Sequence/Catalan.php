@@ -12,6 +12,9 @@ namespace Dogma\Math\Sequence;
 use Dogma\Math\IntCalc;
 use Dogma\ValueOutOfBoundsException;
 
+/**
+ * A000108
+ */
 class Catalan implements Sequence
 {
 

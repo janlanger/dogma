@@ -69,4 +69,38 @@ class RomanCalc
 		return $result;
 	}
 
+	public static function filterLettersFromText(string $text): string
+    {
+        $text = strtoupper($text);
+
+        return preg_replace_callback('/[^MDCLXVI]/', function (): string {
+            return '';
+        }, $text);
+    }
+
+    public static function orderLettersByValue(string $text): string
+    {
+        $text = strtoupper($text);
+
+        $m = $d = $c = $l = $x = $v = $i = 0;
+        $length = strlen($text);
+        for ($n = 0; $n < $length; $n++) {
+            $letter = $text[$n];
+            switch ($letter) {
+                case 'M': $m++; break;
+                case 'D': $d++; break;
+                case 'C': $c++; break;
+                case 'L': $l++; break;
+                case 'X': $x++; break;
+                case 'V': $v++; break;
+                case 'I': $i++; break;
+            }
+        }
+
+        return str_repeat('M', $m)
+            . str_repeat('D', $d) . str_repeat('C', $c)
+            . str_repeat('L', $l) . str_repeat('X', $x)
+            . str_repeat('V', $v) . str_repeat('I', $i);
+    }
+
 }

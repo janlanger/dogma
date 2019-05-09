@@ -40,7 +40,7 @@ Assert::same(BatchCalc::call($multiply, [1, 0], [false, false], [[[2, 3], [4, 5]
 Action::initActions();
 
 $calc = new BatchCalc([
-	[Action::INPUT_SCALAR, []], // A
+	[Action::SCALAR_INPUT, []], // A
 	[Action::SPLIT, ['$A', ' ']], // B
 	[Action::FROM_BINARY, ['$B']], // C
 	[Action::FACTORIZE, ['$C']], // D
